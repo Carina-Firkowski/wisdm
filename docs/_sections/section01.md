@@ -2,7 +2,7 @@
 layout: default
 section: 01
 title: General
-permalink: section01
+permalink: reference/general
 ---
 
 
@@ -58,10 +58,21 @@ This column details the name of the *Scenario*.
 The **Pipeline** datasheet controls the run order of the model transformers. 
 
 ### Stage
+A model may be built of multiple *Stages* that run independently or in sequence. **WISDM** has a total of 6 *Stages*, each dependent on the results of the previous *Stage*. Hence, when setting up a **WISDM** *Library*, all *Stages* must be defined. In the case of *Stage* 5, any number of statistical models may be defined.
 
 ### Run Order
+Determines the order each *Stage* will be run. For **WISDM**, the *Stage* order should always be as follows:
+* *Stage* 1: Prepare Multiprocessing 
+* *Stage* 2: Spatial Data Preparation
+* *Stage* 3: Data Preparation (Non-Spatial)
+* *Stage* 4: Variable Reduction
+* *Stage* 5: Generalized Linear Model
+* *Stage* 5: Random Forest
+* *Stage* 5: Maxent
+* *Stage* 6: Apply Model
 
 ### Jobs
+The maximum number of *Multiprocessing* jobs allowed for each *Stage*.
 
 <br>
 
